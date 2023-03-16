@@ -1,4 +1,4 @@
-import { AppButton } from "@/components/shared/AppButton";
+import { FirstPage } from "@/components/firstPage/FirstPage";
 import Head from "next/head";
 
 export default function Home() {
@@ -9,11 +9,7 @@ export default function Home() {
         <meta name="description" content="Play Tic-tac-toe online" />
       </Head>
       <main>
-        <h1 className="text-2xl">Tailwind test</h1>
-        <AppButton type="button">Hello</AppButton>
-        <AppButton type="button" size="secondary">
-          Hello
-        </AppButton>
+        <FirstPage />
       </main>
     </>
   );

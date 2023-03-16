@@ -13,16 +13,17 @@ module.exports = {
         blue: {
           light: "#31C3BD",
           "light-h": "#65E9E4",
-          dark: "#118C87",
+          shadow: "#118C87",
         },
         yellow: {
           light: "#F2B137",
           "light-h": "#FFC860",
-          dark: "#CC8B13",
+          shadow: "#CC8B13",
         },
         navy: {
           dark: "#1A2A33",
           "semi-dark": "#1F3641",
+          shadow: "#10212A",
         },
         silver: "#A8BFC9",
         "silver-h": "#DBE8ED",
@@ -32,8 +33,8 @@ module.exports = {
         sans: ["var(--font-outfit)", ...fontFamily.sans],
       },
       boxShadow: {
-        "btn-primary": "inset 0 -8px 0px",
-        "btn-secondary": "inset 0px -4px 0px",
+        big: "inset 0 -8px 0px",
+        small: "inset 0px -4px 0px",
       },
       fontSize: {
         l: [
