@@ -23,8 +23,8 @@ export const AppButton = ({
   return (
     // eslint-disable-next-line react/button-has-type
     <button
-      className={`w-full uppercase text-navy-dark ${ColorClassMap[color]} ${SizeClassMap[size]}`}
       {...props}
+      className={`w-full uppercase text-navy-dark ${ColorClassMap[color]} ${SizeClassMap[size]} ${props.className}`}
     />
   );
 };

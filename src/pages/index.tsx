@@ -1,4 +1,4 @@
-import { FirstPage } from "@/components/firstPage/FirstPage";
+import { Game } from "@/components/game/Game";
 import Head from "next/head";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
         <meta name="description" content="Play Tic-tac-toe online" />
       </Head>
       <main>
-        <FirstPage />
+        <Game />
       </main>
     </>
   );

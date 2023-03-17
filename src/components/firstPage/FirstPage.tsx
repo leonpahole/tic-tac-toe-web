@@ -2,31 +2,29 @@ import { IconO } from "@/components/icons/iconO";
 import { IconX } from "@/components/icons/IconX";
 import { AppButton } from "@/components/shared/AppButton";
 import { AppToggle, AppToggleOption } from "@/components/shared/AppToggle";
+import { TTTModels } from "@/util/ttt/ttt.models";
 import Image from "next/image";
 import Logo from "public/images/logo.svg";
 import { useState } from "react";
 
-enum Sign {
-  X = "X",
-  O = "O",
-}
-
 const options: AppToggleOption[] = [
   {
     icon: <IconX className="h-8 w-8 fill-current" />,
-    value: Sign.X,
+    value: TTTModels.Sign.X,
   },
   {
     icon: <IconO className="h-8 w-8 fill-current" />,
-    value: Sign.O,
+    value: TTTModels.Sign.O,
   },
 ];
 
 export const FirstPage = () => {
-  const [player1Sign, setPlayer1Sign] = useState<Sign>(Sign.X);
+  const [player1Sign, setPlayer1Sign] = useState<TTTModels.Sign>(
+    TTTModels.Sign.X
+  );
 
   return (
-    <div className="section flex h-full min-h-screen items-center justify-center">
+    <section className="flex h-full min-h-screen items-center justify-center bg-navy-dark">
       <div className="w-full max-w-md">
         <div className="flex items-center justify-center">
           <Image src={Logo} alt="" height={32} width={72} className="mb-10" />
@@ -37,7 +35,7 @@ export const FirstPage = () => {
           helpText="Remember : X goes first"
           options={options}
           value={player1Sign}
-          onChange={(sign) => setPlayer1Sign(sign as Sign)}
+          onChange={(sign) => setPlayer1Sign(sign as TTTModels.Sign)}
           name="player1-sign"
         />
 
@@ -48,6 +46,6 @@ export const FirstPage = () => {
           </AppButton>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
