@@ -28,7 +28,7 @@ export const GameStats = ({ stats }: IProps) => {
           <span className="text-body">
             {StatLabelsMap[statName as keyof TTTModels.Stats]}
           </span>
-          <span className="text-m">{statValue}</span>
+          <span className="text-s md:text-m">{statValue}</span>
         </div>
       ))}
     </footer>

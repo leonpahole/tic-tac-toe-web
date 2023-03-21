@@ -11,8 +11,10 @@ const ColorClassMap: Record<NonNullable<IProps["color"]>, string> = {
 };
 
 const SizeClassMap: Record<NonNullable<IProps["size"]>, string> = {
-  primary: "px-4 pt-4 pb-6 text-s rounded-2xl shadow-big",
-  secondary: "px-4 pt-3 pb-4 text-xs rounded-lg shadow-small",
+  primary:
+    "px-4 pt-3 md:pt-4 md:pb-6 pb-5 text-xs md:text-s rounded-2xl shadow-big",
+  secondary:
+    "px-3 md:px-4 pt-3 pb-3 md:pb-4 text-body md:text-xs rounded-lg shadow-small",
 };
 
 export const AppButton = ({

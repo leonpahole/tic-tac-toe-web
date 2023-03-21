@@ -24,10 +24,16 @@ export const FirstPage = () => {
   );
 
   return (
-    <section className="flex h-full min-h-screen items-center justify-center bg-navy-dark">
+    <section className="flex h-full min-h-screen items-center justify-center bg-navy-dark p-6">
       <div className="w-full max-w-md">
         <div className="flex items-center justify-center">
-          <Image src={Logo} alt="" height={32} width={72} className="mb-10" />
+          <Image
+            src={Logo}
+            alt=""
+            height={32}
+            width={72}
+            className="mb-8 md:mb-10"
+          />
         </div>
 
         <AppToggle
@@ -39,7 +45,7 @@ export const FirstPage = () => {
           name="player1-sign"
         />
 
-        <div className="mt-10 flex flex-col gap-5">
+        <div className="mt-8 flex flex-col gap-4 md:mt-10 md:gap-5">
           <AppButton type="button">New game (vs CPU)</AppButton>
           <AppButton type="button" color="blue">
             New game (vs player)

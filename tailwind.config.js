@@ -27,7 +27,7 @@ module.exports = {
         },
         silver: "#A8BFC9",
         "silver-h": "#DBE8ED",
-        "silver-dark": "##6B8997",
+        "silver-shadow": "#6B8997",
       },
       fontFamily: {
         sans: ["var(--font-outfit)", ...fontFamily.sans],

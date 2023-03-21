@@ -1,5 +1,4 @@
-import { IconO } from "@/components/icons/iconO";
-import { IconX } from "@/components/icons/IconX";
+import { Sign } from "@/components/shared/Sign";
 import { TTTModels } from "@/util/ttt/ttt.models";
 
 interface IProps {
@@ -12,20 +11,13 @@ interface IProps {
 export const GameCell = ({ state, row, col, onClick }: IProps) => {
   const cell = state[row][col];
 
-  let content;
-  if (cell === TTTModels.Sign.O) {
-    content = <IconO className="h-16 w-16 fill-yellow-light" />;
-  } else if (cell === TTTModels.Sign.X) {
-    content = <IconX className="h-16 w-16 fill-blue-light" />;
-  }
-
   return (
     <button
-      className="flex h-36 w-36 items-center justify-center rounded-2xl bg-navy-semi-dark shadow-big shadow-navy-shadow"
+      className="flex h-24 w-24 items-center justify-center rounded-2xl bg-navy-semi-dark shadow-big shadow-navy-shadow md:h-36 md:w-36"
       type="button"
       onClick={() => onClick(row, col)}
     >
-      {content}
+      <Sign sign={cell} className="h-10 w-10 md:h-16 md:w-16" />
     </button>
   );
 };
