@@ -4,26 +4,18 @@ import { GameStats } from "@/components/game/GameStats";
 import { ResultModal } from "@/components/game/ResultModal";
 import { TTTModels } from "@/util/ttt/ttt.models";
 
-const grid = Array.from({ length: 3 }).map(() => {
-  return Array.from({ length: 3 }).map(() => {
-    return TTTModels.Sign.X;
-  });
-});
+interface IProps {
+  game: TTTModels.Game;
+}
 
-export const Game = () => {
+export const Game = ({ game }: IProps) => {
   return (
     <section className="flex h-full min-h-screen items-center justify-center bg-navy-dark p-6">
       <div>
-        <GameHeader />
-        <GameGrid state={grid} onCellClick={() => {}} />
-        <GameStats stats={{ oWins: 10, ties: 20, xWins: 5 }} />
-        <ResultModal
-          isOpen={false}
-          mySign={TTTModels.Sign.O}
-          onNextRound={() => {}}
-          onQuit={() => {}}
-          winner={null}
-        />
+        <GameHeader game={game} />
+        <GameGrid game={game} />
+        <GameStats game={game} />
+        <ResultModal game={game} />
       </div>
     </section>
   );

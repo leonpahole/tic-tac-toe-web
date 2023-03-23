@@ -4,37 +4,46 @@ import { Sign } from "@/components/shared/Sign";
 import { TTTModels } from "@/util/ttt/ttt.models";
 
 interface IProps {
-  isOpen: boolean;
-  opponentSign?: TTTModels.Sign;
-  winner: TTTModels.Sign | null;
-  onQuit(): void;
-  onNextRound(): void;
+  game: TTTModels.Game;
 }
 
-export const ResultModal = ({
-  isOpen,
-  opponentSign,
-  winner,
-  onQuit,
-  onNextRound,
-}: IProps) => {
+export const ResultModal = ({ game }: IProps) => {
   const ResultHeadingClasses =
     "mb-6 flex items-center gap-2 md:gap-6 text-m md:text-l uppercase";
 
+  const isOpen = game.result !== undefined;
+  let text = "";
+  if (game.result === null) {
+    text = "Round tied";
+  } else if (game.gameMode === TTTModels.GameMode.PVP) {
+    let playerNoWinner = 2;
+    if (game.result === game.player1Sign) {
+      playerNoWinner = 1;
+    }
+
+    text = `Player ${playerNoWinner} wins!`;
+  } else if (game.gameMode === TTTModels.GameMode.VS_CPU) {
+    if (game.result === game.player1Sign) {
+      text = "You won!";
+    } else {
+      text = "Oh no, you lost...";
+    }
+  }
+
   return (
-    <AppModal isOpen={isOpen} contentLabel="">
+    <AppModal isOpen={isOpen} contentLabel={text}>
       <div className="flex flex-col items-center justify-center py-11 px-6">
-        {winner ? (
+        {game.result != null ? (
           <>
             <h2 className="mb-4 text-body uppercase text-silver md:text-xs">
-              Player 1 wins
+              {text}
             </h2>
             <h3
               className={`${ResultHeadingClasses} ${TTTModels.getSignColor(
-                winner
+                game.result
               )}`}
             >
-              <Sign className="h-7 w-7 md:h-16 md:w-16" sign={winner} />
+              <Sign className="h-7 w-7 md:h-16 md:w-16" sign={game.result} />
               <span>Takes the round</span>
             </h3>
           </>
@@ -45,7 +54,9 @@ export const ResultModal = ({
         )}
         <div className="flex items-center gap-4">
           <AppButton
-            onClick={onQuit}
+            onClick={() => {
+              game.quit();
+            }}
             type="button"
             color="silver"
             size="secondary"
@@ -54,7 +65,9 @@ export const ResultModal = ({
             Quit
           </AppButton>
           <AppButton
-            onClick={onNextRound}
+            onClick={() => {
+              game.onRestart();
+            }}
             type="button"
             className="!w-[unset]"
             size="secondary"

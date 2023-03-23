@@ -18,7 +18,11 @@ const options: AppToggleOption[] = [
   },
 ];
 
-export const FirstPage = () => {
+interface IProps {
+  onSelect(player1Sign: TTTModels.Sign, mode: TTTModels.GameMode): void;
+}
+
+export const FirstPage = ({ onSelect }: IProps) => {
   const [player1Sign, setPlayer1Sign] = useState<TTTModels.Sign>(
     TTTModels.Sign.X
   );
@@ -46,8 +50,21 @@ export const FirstPage = () => {
         />
 
         <div className="mt-8 flex flex-col gap-4 md:mt-10 md:gap-5">
-          <AppButton type="button">New game (vs CPU)</AppButton>
-          <AppButton type="button" color="blue">
+          <AppButton
+            type="button"
+            onClick={() => {
+              onSelect(player1Sign, TTTModels.GameMode.VS_CPU);
+            }}
+          >
+            New game (vs CPU)
+          </AppButton>
+          <AppButton
+            type="button"
+            color="blue"
+            onClick={() => {
+              onSelect(player1Sign, TTTModels.GameMode.PVP);
+            }}
+          >
             New game (vs player)
           </AppButton>
         </div>

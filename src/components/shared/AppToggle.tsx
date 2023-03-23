@@ -34,6 +34,7 @@ export const AppToggle = ({
 
           return (
             <label
+              key={option.value}
               className={`flex flex-1 cursor-pointer items-center justify-center rounded-lg p-3 transition-colors ${
                 isSelected ? "bg-silver text-navy-dark" : "text-silver"
               }`}

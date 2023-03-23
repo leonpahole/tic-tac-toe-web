@@ -1,10 +1,10 @@
 import { TTTModels } from "@/util/ttt/ttt.models";
 
 interface IProps {
-  stats: TTTModels.Stats;
+  game: TTTModels.Game;
 }
 
-export const GameStats = ({ stats }: IProps) => {
+export const GameStats = ({ game }: IProps) => {
   const StatLabelsMap: Record<keyof TTTModels.Stats, string> = {
     oWins: "O",
     xWins: "X",
@@ -19,8 +19,9 @@ export const GameStats = ({ stats }: IProps) => {
 
   return (
     <footer className="mt-5 flex gap-5">
-      {Object.entries(stats).map(([statName, statValue]: [any, any]) => (
+      {Object.entries(game.stats).map(([statName, statValue]: [any, any]) => (
         <div
+          key={statName}
           className={`${
             StatBgMap[statName as keyof TTTModels.Stats]
           } flex flex-1 flex-col items-center justify-center rounded-2xl p-3 text-navy-dark`}
