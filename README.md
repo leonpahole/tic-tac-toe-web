@@ -27,8 +27,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/leonpahole/tic-tac-toe-web](https://github.com/leonpahole/tic-tac-toe-web)
+- Live Site URL: [https://tic-tac-toe-web-sandy.vercel.app/](https://tic-tac-toe-web-sandy.vercel.app/)
 
 ## My process
 
