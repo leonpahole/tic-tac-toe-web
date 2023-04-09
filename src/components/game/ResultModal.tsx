@@ -52,7 +52,7 @@ export const ResultModal = ({ game }: IProps) => {
             Round tied
           </h3>
         )}
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-4">
           <AppButton
             onClick={() => {
               game.quit();

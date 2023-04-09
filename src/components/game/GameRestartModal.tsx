@@ -14,7 +14,7 @@ export const GameRestartModal = ({ isOpen, onCancel, onConfirm }: IProps) => {
         <h2 className="mb-6 text-center text-m uppercase text-silver md:mb-8 md:text-l">
           Restart game?
         </h2>
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-4">
           <AppButton
             color="silver"
             size="secondary"
