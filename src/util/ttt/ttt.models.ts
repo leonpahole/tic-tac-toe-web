@@ -135,14 +135,19 @@ export namespace TTTModels {
   export const getNextComputerMove = (
     state: Grid
   ): { row: number; col: number } | null => {
+    const emptyCells: { row: number; col: number }[] = [];
     for (let row = 0; row < state.length; row++) {
       for (let col = 0; col < state.length; col++) {
         if (state[row][col] == null) {
-          return { row, col };
+          emptyCells.push({ row, col });
         }
       }
     }
 
-    return null;
+    if (emptyCells.length === 0) {
+      return null;
+    }
+
+    return emptyCells[Math.floor(Math.random() * emptyCells.length)];
   };
 }
