@@ -34,9 +34,11 @@ Users should be able to:
 
 ### Built with
 
-TBD
+- Next.js
+- Typescript
+- Tailwind
 
 ## Author
 
 - Website - [leonpahole.com](https://leonpahole.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@leonpahole](https://www.frontendmentor.io/profile/leonpahole)
